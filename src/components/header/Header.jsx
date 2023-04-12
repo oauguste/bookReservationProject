@@ -5,15 +5,11 @@ import { useState } from "react";
 import {
   faBed,
   faCar,
-  faPeopleGroup,
   faPerson,
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faCalendar,
-  faCalendarDays,
-} from "@fortawesome/free-regular-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import format from "date-fns/format";

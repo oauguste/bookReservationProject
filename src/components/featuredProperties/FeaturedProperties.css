@@ -1,0 +1,38 @@
+.fp {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.fpItem {
+  flex: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fpImg {
+  width: 100%;
+}
+
+.fpName {
+  font-weight: bold;
+}
+.fpCity {
+  font-weight: 300;
+}
+.fpPrice {
+  font-weight: 500;
+}
+.rating > button {
+  background-color: #003580;
+  color: white;
+  border: none;
+  padding: 3px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.rating > span {
+  font-size: 14px;
+}
