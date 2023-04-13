@@ -2,9 +2,21 @@ import "./List.css";
 
 import NavBar from "../../components/navbar/NavBar";
 import Header from "../../components/header/Header";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { format } from "date-fns";
 // import Featured from "../../components/featured/Featured";
 
 const List = () => {
+  const location = useLocation();
+  const [destination, setDestination] = useState(
+    location.state.destination
+  );
+  const [date, setDate] = useState(location.state.date);
+
+  const [options, setOptions] = useState(
+    location.state.options
+  );
   return (
     <div>
       <NavBar></NavBar>
@@ -19,11 +31,20 @@ const List = () => {
             </div>
             <div className="lsItem">
               <label>Check-in date</label>
-              <input type="text" />
+              <span>{`${format(
+                date[0].startDate,
+                "MM/dd/yyyy"
+              )} to ${format(
+                date[0].endDate,
+                "MM/dd/yyyy"
+              )}`}</span>
             </div>
             <div className="lsItem">
               <label>Destination</label>
-              <input type="text" />
+              <input
+                type="text"
+                placeholder={destination}
+              />
             </div>
             <div className="lsItem">
               <label>Destination</label>

@@ -13,8 +13,10 @@ import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import format from "date-fns/format";
+import { useNavigate } from "react-router-dom";
 const Header = ({ type }) => {
   const [openDate, setOpenDate] = useState(false);
+  const [destination, setDestination] = useState("");
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -38,6 +40,12 @@ const Header = ({ type }) => {
             ? options[name] + 1
             : options[name] - 1,
       };
+    });
+  };
+  const navigate = useNavigate();
+  const handleSearch = () => {
+    navigate("/hotels", {
+      state: { destination, date, options },
     });
   };
 
@@ -95,6 +103,9 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
+                  onChange={(e) =>
+                    setDestination(e.target.value)
+                  }
                 />
               </div>
               <div className="headerSearchItem">
@@ -225,7 +236,10 @@ const Header = ({ type }) => {
                   )}
                 </span>
               </div>
-              <button className="headerButton">
+              <button
+                className="headerButton"
+                onClick={handleSearch}
+              >
                 Seach
               </button>
             </div>{" "}
